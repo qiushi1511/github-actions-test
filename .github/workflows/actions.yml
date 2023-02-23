@@ -23,5 +23,25 @@ jobs:
           who-to-greet: Qiushi
       - name: Log Greeting Time
         run: echo "${{ steps.greeting.outputs.time }}"
-    
-    
+  clone-github-repo-manually:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files
+        run: |
+          pwd
+          ls -a
+      - name: List Vars
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo ${{ github.token }}
+      - name: Clone Github Repo
+        run: |
+          git clone https://${{ github.token }}@github.com/$GITHUB_REPOSITORY.git $GITHUB_WORKSPACE
+          cd $GITHUB_WORKSPACE
+          git checkout $GITHUB_SHA
+      - name: List Files After Clone
+        run: |
+          pwd
+          ls -a
