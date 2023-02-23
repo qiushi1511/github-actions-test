@@ -13,3 +13,10 @@ jobs:
           node -v
           npm -v
           yarn -v
+      - name: python Commands
+        run: |
+          import platform
+          print("Hello World")
+          print("platform.processor()")
+          print(platform.processor())
+        shell: python
