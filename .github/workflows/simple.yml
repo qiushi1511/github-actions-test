@@ -22,6 +22,7 @@ jobs:
         shell: python
   run-window-commands:
     runs-on: windows-latest
+    needs: ["run-shell-commands"]
     steps:
       - name: Diretory PowerShell
         run: Get-Location
