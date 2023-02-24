@@ -1,0 +1,9 @@
+name: 'List Files'
+description: 'List all files in the current directory'
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        pwd
+        ls -a
+      shell: bash
