@@ -9,6 +9,31 @@ jobs:
       - name: print node version
         run: |
           pwd
+          ls
           node -v
           corepack -v
           npm -v
+  
+  with-setup-node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: print local files
+        run: |
+          pwd
+          ls
+      - name: setup node and package manager
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.16.1'
+          cache: 'yarn'
+      - name: enable corepack
+        run: |
+          corepack enable
+      - name: print node version
+        run: |
+          pwd
+          node -v
+          corepack -v
+          npm -v
+          yarn -v
