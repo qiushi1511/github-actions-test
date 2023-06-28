@@ -1,0 +1,21 @@
+name: 'Setup runtime'
+description: 'Setup the node and package manager'
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.16.1'
+        cache: 'yarn'
+    - name: Setup Package Manager
+      run: |
+        corepack enable
+        node -v
+        corepack -v
+        yarn -v
+    - name: Install depdenencies
+      run: | 
+        yarn
