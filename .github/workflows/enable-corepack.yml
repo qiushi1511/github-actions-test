@@ -9,7 +9,7 @@ jobs:
       - name: print node version
         run: |
           pwd
-          ls
+          ls -alh
           node -v
           corepack -v
           npm -v
@@ -17,6 +17,12 @@ jobs:
   with-setup-node:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: print node version
+        run: |
+          pwd
+          ls -alh
       - name: Setup Runtime
         uses: ./.github/actions/setup-runtime
       - name: print node version
