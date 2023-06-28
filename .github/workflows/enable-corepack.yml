@@ -1,0 +1,14 @@
+name: Experiment to enable corepack
+
+on: [push, workflow_dispatch]
+
+jobs: 
+  setup-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print node version
+        run: |
+          pwd
+          node -v
+          corepack -v
+          npm -v
