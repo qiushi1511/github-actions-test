@@ -1,0 +1,25 @@
+name: Basic workflow 
+
+on: [push, workflow_dispatch]
+
+jobs: 
+  setup-runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - &setup-runtime-steps
+        uses: actions/checkout@v3
+      - name: print local files
+        run: |
+          pwd
+          ls
+      - name: setup node and package manager
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.16.1'
+          cache: 'yarn'
+      - name: Enable corepack
+        run: |
+          corepack enable
+          node -v
+          corepack -v
+          yarn -v
