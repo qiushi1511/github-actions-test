@@ -1,0 +1,14 @@
+name: "Workflow exists in branch only"
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - release-prod
+
+jobs:
+  run-shell-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        run: echo "Hello World"
