@@ -22,3 +22,5 @@ jobs:
           mkdir ~/aws
           touch ~/aws/credentials
           ls -alh ~/
+      - name: List Files in homepath
+        run: ls -alh ~/
