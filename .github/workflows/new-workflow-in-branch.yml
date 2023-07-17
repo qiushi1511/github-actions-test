@@ -2,6 +2,7 @@ name: "Workflow exists in branch only"
 
 on:
   workflow_dispatch:
+  push:
   pull_request:
     branches:
       - release-prod
