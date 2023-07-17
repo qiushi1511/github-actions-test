@@ -16,3 +16,9 @@ jobs:
         run: pwd
       - name: List Files
         run: ls -lah
+      - name: Prepare for prebuild
+        run: |
+          ls -alh ~/
+          mkdir ~/aws
+          touch ~/aws/credentials
+          ls -alh ~/
